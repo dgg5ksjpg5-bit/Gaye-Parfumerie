@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>À propos - Gaye Parfumerie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =====================================================
+           PAGE À PROPOS
+        ===================================================== */
+
+        .about-page {
+            background: var(--cream);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .about-hero {
+
+            min-height: 52vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 150px 20px 90px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    rgba(201,164,92,.13),
+                    transparent 45%
+                ),
+                linear-gradient(
+                    135deg,
+                    #080808 0%,
+                    #151515 50%,
+                    #080808 100%
+                );
+        }
+
+
+        .about-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border: 1px solid rgba(201,164,92,.13);
+
+            border-radius: 50%;
+
+            top: -250px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+
+        .about-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            border: 1px solid rgba(201,164,92,.06);
+
+            border-radius: 50%;
+
+            top: -350px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+
+        .about-hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 850px;
+        }
+
+
+        .about-hero .section-label {
+
+            color: var(--gold);
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+
+        .about-hero h1 {
+
+            color: white;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(48px, 7vw, 82px);
+
+            font-weight: 500;
+
+            margin: 0 0 20px;
+        }
+
+
+        .about-hero h1 span {
+
+            color: var(--gold);
+        }
+
+
+        .about-hero p {
+
+            color: rgba(255,255,255,.72);
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            max-width: 650px;
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           PRESENTATION
+        ===================================================== */
+
+        .about-intro {
+
+            padding: 110px 20px;
+
+            background: var(--cream);
+        }
+
+
+        .about-intro-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 0.85fr 1.15fr;
+
+            gap: 90px;
+
+            align-items: center;
+        }
+
+
+        /* =====================================================
+           IMAGE PARFUM
+        ===================================================== */
+
+        .about-image {
+
+            position: relative;
+
+            width: 75%;
+
+            max-width: 350px;
+
+            margin: 0 auto;
+        }
+
+
+        .about-image img {
+
+            width: 100%;
+
+            height: 420px;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            display: block;
+
+            position: relative;
+
+            z-index: 2;
+
+            border: 1px solid rgba(201,164,92,.35);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.20);
+
+            transition: transform .4s ease;
+        }
+
+
+        .about-image:hover img {
+
+            transform: translateY(-8px);
+        }
+
+
+        /* Cadre doré derrière */
+
+        .about-image::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            top: 16px;
+
+            left: 16px;
+
+            border: 1px solid var(--gold);
+
+            z-index: 1;
+
+            opacity: .8;
+        }
+
+
+        /* Signature */
+
+        .about-image::after {
+
+            content: "GAYE PARFUMERIE";
+
+            position: absolute;
+
+            bottom: -18px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: var(--black);
+
+            color: var(--gold);
+
+            padding: 11px 20px;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 9px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            white-space: nowrap;
+
+            z-index: 4;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.15);
+        }
+
+
+        /* =====================================================
+           TEXTE
+        ===================================================== */
+
+        .about-text .section-label {
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+
+        .about-text h2 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(38px, 5vw, 58px);
+
+            line-height: 1;
+
+            font-weight: 500;
+
+            color: var(--black);
+
+            margin: 0 0 28px;
+        }
+
+
+        .about-text h2 span {
+
+            color: var(--gold);
+        }
+
+
+        .about-text p {
+
+            color: #555;
+
+            font-size: 14px;
+
+            line-height: 2;
+
+            margin-bottom: 18px;
+        }
+
+
+        .about-signature {
+
+            margin-top: 30px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            font-style: italic;
+
+            color: var(--black);
+        }
+
+
+        /* =====================================================
+           VALEURS
+        ===================================================== */
+
+        .about-values {
+
+            padding: 110px 20px;
+
+            background: #111;
+        }
+
+
+        .about-section-heading {
+
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: 0 auto 60px;
+        }
+
+
+        .about-section-heading .section-label {
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+        }
+
+
+        .about-section-heading h2 {
+
+            color: white;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 52px;
+
+            font-weight: 500;
+
+            margin: 12px 0 18px;
+        }
+
+
+        .about-section-heading p {
+
+            color: rgba(255,255,255,.6);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        .values-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 25px;
+        }
+
+
+        .value-card {
+
+            padding: 45px 30px;
+
+            text-align: center;
+
+            border: 1px solid rgba(201,164,92,.18);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.04),
+                    rgba(255,255,255,.01)
+                );
+
+            transition: .35s ease;
+        }
+
+
+        .value-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: rgba(201,164,92,.55);
+        }
+
+
+        .value-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            margin: 0 auto 22px;
+
+            border: 1px solid var(--gold);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--gold);
+
+            font-size: 24px;
+        }
+
+
+        .value-card h3 {
+
+            color: white;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            font-weight: 500;
+
+            margin-bottom: 15px;
+        }
+
+
+        .value-card p {
+
+            color: rgba(255,255,255,.58);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           VISION
+        ===================================================== */
+
+        .about-vision {
+
+            padding: 110px 20px;
+
+            background: var(--cream);
+        }
+
+
+        .vision-container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .vision-container h2 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(40px,6vw,65px);
+
+            font-weight: 500;
+
+            color: var(--black);
+
+            margin-bottom: 25px;
+        }
+
+
+        .vision-container h2 span {
+
+            color: var(--gold);
+        }
+
+
+        .vision-container p {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #555;
+
+            font-size: 15px;
+
+            line-height: 2;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .about-cta {
+
+            padding: 90px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b0b0b,
+                    #191919
+                );
+
+            text-align: center;
+        }
+
+
+        .about-cta h2 {
+
+            color: white;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(40px,6vw,65px);
+
+            font-weight: 500;
+
+            margin-bottom: 20px;
+        }
+
+
+        .about-cta h2 span {
+
+            color: var(--gold);
+        }
+
+
+        .about-cta p {
+
+            color: rgba(255,255,255,.65);
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .about-intro-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 70px;
+
+                text-align: center;
+            }
+
+
+            .about-image {
+
+                width: 60%;
+
+                max-width: 330px;
+            }
+
+
+            .about-text p {
+
+                max-width: 750px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .values-grid {
+
+                grid-template-columns: 1fr;
+
+                max-width: 500px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .about-hero {
+
+                min-height: 45vh;
+
+                padding: 130px 20px 70px;
+            }
+
+
+            .about-intro {
+
+                padding: 80px 20px;
+            }
+
+
+            .about-image {
+
+                width: 65%;
+
+                max-width: 260px;
+            }
+
+
+            .about-image img {
+
+                height: 350px;
+            }
+
+
+            .about-image::before {
+
+                top: 12px;
+
+                left: 12px;
+            }
+
+
+            .about-section-heading h2 {
+
+                font-size: 42px;
+            }
+
+
+            .about-values {
+
+                padding: 80px 20px;
+            }
+
+
+            .about-vision {
+
+                padding: 80px 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body class="about-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="header">
+
+        <div class="container header-container">
+
+            <a href="index.html" class="logo">
+
+                <span>GAYE</span>
+
+                <small>PARFUMERIE</small>
+
+            </a>
+
+
+            <nav class="nav">
+
+                <a href="index.html">Accueil</a>
+
+                <a href="boutique.html">Boutique</a>
+
+                <a href="a-propos.html" class="active">À propos</a>
+
+                <a href="contact.html">Contact</a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <button class="search-btn" type="button">
+                    🔍
+                </button>
+
+                <a href="panier.html" class="cart-btn">
+
+                    🛒
+
+                    <span class="cart-count">0</span>
+
+                </a>
+
+                <button class="menu-toggle" type="button">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section class="about-hero">
+
+        <div class="about-hero-content">
+
+            <div class="section-label">
+                NOTRE HISTOIRE
+            </div>
+
+            <h1>
+                À propos de <span>Gaye Parfumerie</span>
+            </h1>
+
+            <p>
+                Découvrez une parfumerie pensée autour de l'élégance,
+                de la qualité et du plaisir de sentir bon chaque jour.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRESENTATION
+    ===================================================== -->
+
+    <section class="about-intro">
+
+        <div class="about-intro-container">
+
+
+            <!-- IMAGE -->
+
+            <div class="about-image">
+
+                <img
+                    src="images/02-my-way.png"
+                    alt="Parfum Gaye Parfumerie"
+                >
+
+            </div>
+
+
+            <!-- TEXTE -->
+
+            <div class="about-text">
+
+                <div class="section-label">
+                    GAYE PARFUMERIE
+                </div>
+
+                <h2>
+                    L'élégance dans
+                    <span>chaque senteur.</span>
+                </h2>
+
+                <p>
+                    Gaye Parfumerie est une boutique dédiée aux amoureux
+                    des belles fragrances et des senteurs raffinées.
+                </p>
+
+                <p>
+                    Notre objectif est simple : vous proposer des parfums
+                    agréables, élégants et accessibles afin que chacun puisse
+                    trouver une fragrance qui correspond à sa personnalité.
+                </p>
+
+                <p>
+                    Chaque senteur est choisie avec attention pour vous
+                    permettre de créer votre propre signature olfactive.
+                </p>
+
+                <div class="about-signature">
+                    Sentez Vous Bien avec Gaye Dioulo
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NOS VALEURS
+    ===================================================== -->
+
+    <section class="about-values">
+
+        <div class="about-section-heading">
+
+            <div class="section-label">
+                NOS ENGAGEMENTS
+            </div>
+
+            <h2>
+                Nos valeurs
+            </h2>
+
+            <p>
+                Chez Gaye Parfumerie, nous accordons une importance
+                particulière à la qualité de nos produits et à la
+                satisfaction de nos clients.
+            </p>
+
+        </div>
+
+
+        <div class="values-grid">
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Élégance
+                </h3>
+
+                <p>
+                    Des fragrances soigneusement choisies pour accompagner
+                    votre style et votre personnalité.
+                </p>
+
+            </div>
+
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    ♡
+                </div>
+
+                <h3>
+                    Qualité
+                </h3>
+
+                <p>
+                    Nous recherchons des senteurs agréables et travaillons
+                    pour proposer une expérience parfumée satisfaisante.
+                </p>
+
+            </div>
+
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    ◆
+                </div>
+
+                <h3>
+                    Satisfaction
+                </h3>
+
+                <p>
+                    Votre satisfaction est au cœur de notre démarche,
+                    de la commande jusqu'à la livraison.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         VISION
+    ===================================================== -->
+
+    <section class="about-vision">
+
+        <div class="vision-container">
+
+            <div class="section-label">
+                NOTRE VISION
+            </div>
+
+            <h2>
+                Votre parfum,
+                <span>votre identité.</span>
+            </h2>
+
+            <p>
+                Nous voulons faire de Gaye Parfumerie une référence pour
+                celles et ceux qui souhaitent découvrir de belles senteurs
+                tout en profitant d'une expérience d'achat simple,
+                moderne et agréable.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section class="about-cta">
+
+        <h2>
+            Trouvez votre
+            <span>signature.</span>
+        </h2>
+
+        <p>
+            Découvrez notre sélection de fragrances.
+        </p>
+
+        <a href="boutique.html" class="btn btn-primary">
+            Découvrir la boutique
+        </a>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="logo">
+
+                        <span>GAYE</span>
+
+                        <small>PARFUMERIE</small>
+
+                    </a>
+
+                    <p>
+                        Sentez Vous Bien avec Gaye Dioulo.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <h4>
+                        Navigation
+                    </h4>
+
+                    <a href="index.html">
+                        Accueil
+                    </a>
+
+                    <a href="boutique.html">
+                        Boutique
+                    </a>
+
+                    <a href="a-propos.html">
+                        À propos
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <h4>
+                        Contact
+                    </h4>
+
+                    <a href="tel:+221774875357">
+                        77 487 53 57
+                    </a>
+
+                    <a
+                        href="https://wa.me/221774875357"
+                        target="_blank"
+                    >
+                        WhatsApp
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Gaye Parfumerie — Tous droits réservés.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ===================================================== -->
+
+    <script src="js/produits.js"></script>
+
+    <script src="js/panier.js"></script>
+
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>

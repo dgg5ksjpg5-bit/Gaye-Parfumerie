@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Commande | Gaye Parfumerie</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <style>
+
+        /* =========================================
+           PAGE COMMANDE
+           ========================================= */
+
+        .checkout-page {
+            min-height: 100vh;
+            padding: 150px 6% 90px;
+            background: var(--cream);
+        }
+
+        .checkout-container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .checkout-header span {
+            display: block;
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .checkout-header h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(45px, 6vw, 70px);
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 15px;
+        }
+
+        .checkout-header p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           GRILLE
+           ========================================= */
+
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* =========================================
+           FORMULAIRE
+           ========================================= */
+
+        .checkout-form {
+            background: white;
+            padding: 45px;
+        }
+
+        .checkout-section-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 9px;
+            color: var(--black);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 16px;
+            border: 1px solid #ddd;
+            background: #fff;
+            outline: none;
+            font-family: "Montserrat", sans-serif;
+            font-size: 12px;
+            color: var(--black);
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* =========================================
+           PAIEMENT
+           ========================================= */
+
+        .payment-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 27px;
+            margin: 35px 0 20px;
+        }
+
+        .payment-options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .payment-option {
+            border: 1px solid #ddd;
+            padding: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+
+        .payment-option:hover {
+            border-color: var(--gold);
+        }
+
+        .payment-option input {
+            accent-color: var(--black);
+        }
+
+        .payment-option strong {
+            font-size: 12px;
+        }
+
+        .payment-option small {
+            display: block;
+            color: #777;
+            margin-top: 4px;
+            font-size: 10px;
+        }
+
+        /* =========================================
+           BOUTON
+           ========================================= */
+
+        .submit-order {
+            width: 100%;
+            border: none;
+            background: var(--black);
+            color: white;
+            padding: 18px;
+            margin-top: 30px;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+        }
+
+        .submit-order:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* =========================================
+           RESUME COMMANDE
+           ========================================= */
+
+        .order-summary {
+            background: var(--black);
+            color: white;
+            padding: 35px;
+            position: sticky;
+            top: 120px;
+        }
+
+        .order-summary h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .summary-products {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #333;
+        }
+
+        .summary-product {
+            display: grid;
+            grid-template-columns: 65px 1fr auto;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .summary-product img {
+            width: 65px;
+            height: 75px;
+            object-fit: cover;
+        }
+
+        .summary-product-info h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .summary-product-info span {
+            font-size: 10px;
+            color: #aaa;
+        }
+
+        .summary-product-price {
+            font-size: 11px;
+            white-space: nowrap;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        .summary-total {
+            border-top: 1px solid #444;
+            margin-top: 10px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-total span:first-child {
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .summary-total strong {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            color: var(--gold-light);
+        }
+
+        .empty-order {
+            text-align: center;
+            padding: 30px 0;
+            color: #aaa;
+        }
+
+        .empty-order p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 12px;
+        }
+
+        .empty-order a {
+            display: inline-block;
+            color: var(--gold-light);
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            padding: 12px 18px;
+            font-size: 10px;
+        }
+
+        /* =========================================
+           MESSAGE
+           ========================================= */
+
+        .form-message {
+            margin-top: 18px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .form-message.error {
+            color: #b33;
+        }
+
+        .form-message.success {
+            color: #387a4a;
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+
+        @media (max-width: 850px) {
+
+            .checkout-page {
+                padding: 120px 5% 60px;
+            }
+
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: static;
+            }
+
+            .checkout-form {
+                padding: 35px 25px;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .checkout-form {
+                padding: 30px 20px;
+            }
+
+            .order-summary {
+                padding: 28px 20px;
+            }
+
+            .summary-product {
+                grid-template-columns: 55px 1fr;
+            }
+
+            .summary-product img {
+                width: 55px;
+                height: 65px;
+            }
+
+            .summary-product-price {
+                grid-column: 2;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <span>GAYE</span>
+
+            <small>
+                PARFUMERIE
+            </small>
+
+        </div>
+
+
+        <nav class="nav-menu">
+
+            <a href="index.html">
+                Accueil
+            </a>
+
+            <a href="boutique.html">
+                Boutique
+            </a>
+
+            <a href="a-propos.html">
+                À propos
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button class="search-btn">
+                ⌕
+            </button>
+
+            <a
+                href="panier.html"
+                class="cart-btn">
+
+                🛍
+
+                <span class="cart-count">
+                    0
+                </span>
+
+            </a>
+
+
+            <button class="menu-btn">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         COMMANDE
+         ========================================= -->
+
+    <main class="checkout-page">
+
+        <div class="checkout-container">
+
+
+            <section class="checkout-header">
+
+                <span>
+                    FINALISER VOTRE ACHAT
+                </span>
+
+                <h1>
+                    Votre commande
+                </h1>
+
+                <p>
+                    Remplissez vos informations pour
+                    finaliser votre commande.
+                </p>
+
+            </section>
+
+
+            <div class="checkout-layout">
+
+
+                <!-- =================================
+                     FORMULAIRE
+                     ================================= -->
+
+                <section class="checkout-form">
+
+                    <h2 class="checkout-section-title">
+                        Informations de livraison
+                    </h2>
+
+
+                    <form id="order-form">
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label for="nom">
+                                    NOM ET PRÉNOM *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nom"
+                                    name="nom"
+                                    placeholder="Votre nom complet"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="telephone">
+                                    TÉLÉPHONE *
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="telephone"
+                                    name="telephone"
+                                    placeholder="77 000 00 00"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="ville">
+                                VILLE *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="ville"
+                                name="ville"
+                                placeholder="Ex : Dakar"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="adresse">
+                                ADRESSE DE LIVRAISON *
+                            </label>
+
+                            <textarea
+                                id="adresse"
+                                name="adresse"
+                                placeholder="Quartier, rue, repère..."
+                                required></textarea>
+
+                        </div>
+
+
+                        <!-- =========================
+                             PAIEMENT
+                             ========================= -->
+
+                        <h3 class="payment-title">
+                            Mode de paiement
+                        </h3>
+
+
+                        <div class="payment-options">
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paiement"
+                                    value="wave"
+                                    required>
+
+                                <div>
+
+                                    <strong>
+                                        Wave
+                                    </strong>
+
+                                    <small>
+                                        Paiement via Wave
+                                    </small>
+
+                                </div>
+
+                            </label>
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paiement"
+                                    value="orange-money">
+
+                                <div>
+
+                                    <strong>
+                                        Orange Money
+                                    </strong>
+
+                                    <small>
+                                        Paiement via Orange Money
+                                    </small>
+
+                                </div>
+
+                            </label>
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paiement"
+                                    value="livraison">
+
+                                <div>
+
+                                    <strong>
+                                        Paiement à la livraison
+                                    </strong>
+
+                                    <small>
+                                        Payez lors de la réception
+                                    </small>
+
+                                </div>
+
+                            </label>
+
+                        </div>
+
+
+                        <div
+                            id="form-message"
+                            class="form-message">
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="submit-order">
+
+                            PASSER LA COMMANDE
+
+                        </button>
+
+
+                    </form>
+
+                </section>
+
+
+                <!-- =================================
+                     RESUME
+                     ================================= -->
+
+                <aside class="order-summary">
+
+                    <h2>
+                        Résumé
+                    </h2>
+
+
+                    <div
+                        id="summary-products"
+                        class="summary-products">
+                    </div>
+
+
+                    <div class="summary-line">
+
+                        <span>
+                            Sous-total
+                        </span>
+
+                        <span id="summary-subtotal">
+                            0 FCFA
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-line">
+
+                        <span>
+                            Livraison
+                        </span>
+
+                        <span>
+                            À confirmer
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-total">
+
+                        <span>
+                            TOTAL
+                        </span>
+
+                        <strong id="summary-total">
+                            0 FCFA
+                        </strong>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         SCRIPTS
+         ========================================= -->
+
+    <script src="js/produits.js"></script>
+
+    <script src="js/panier.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/commande.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Confirmation - Gaye Parfumerie
+    </title>
+
+    <!-- POLICES -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS PRINCIPAL -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           PAGE CONFIRMATION
+        ===================================================== */
+
+        .confirmation-page {
+
+            min-height: 80vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 80px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b0b0b,
+                    #141414
+                );
+
+        }
+
+
+        /* =====================================================
+           CARTE
+        ===================================================== */
+
+        .confirmation-card {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            background: #f6f2ea;
+
+            padding: 60px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,0.45);
+
+        }
+
+
+        /* =====================================================
+           ICONE
+        ===================================================== */
+
+        .confirmation-icon {
+
+            width: 80px;
+
+            height: 80px;
+
+            margin: 0 auto 25px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            background: #c9a45c;
+
+            color: #0b0b0b;
+
+            font-size: 40px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           MARQUE
+        ===================================================== */
+
+        .confirmation-brand {
+
+            color: #c9a45c;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =====================================================
+           TITRE
+        ===================================================== */
+
+        .confirmation-card h1 {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 48px;
+
+            margin: 0 0 15px;
+
+            color: #0b0b0b;
+
+        }
+
+
+        .confirmation-text {
+
+            color: #555;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =====================================================
+           NUMERO COMMANDE
+        ===================================================== */
+
+        .order-number {
+
+            background: #0b0b0b;
+
+            color: white;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .order-number span {
+
+            display: block;
+
+            color: #c9a45c;
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .order-number strong {
+
+            font-size: 24px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        /* =====================================================
+           INFORMATIONS CLIENT
+        ===================================================== */
+
+        .customer-info {
+
+            text-align: left;
+
+            border-top: 1px solid #ddd;
+
+            padding-top: 25px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .customer-info h2,
+        .confirmation-products h2 {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 28px;
+
+            color: #0b0b0b;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .info-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #e5e5e5;
+
+        }
+
+
+        .info-row span {
+
+            color: #777;
+
+        }
+
+
+        .info-row strong {
+
+            color: #0b0b0b;
+
+            text-align: right;
+
+        }
+
+
+        /* =====================================================
+           PRODUITS
+        ===================================================== */
+
+        .confirmation-products {
+
+            text-align: left;
+
+            border-top: 1px solid #ddd;
+
+            padding-top: 25px;
+
+            margin-top: 30px;
+
+        }
+
+
+        .confirmation-product {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #e5e5e5;
+
+        }
+
+
+        .confirmation-product div {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+        }
+
+
+        .confirmation-product strong {
+
+            color: #0b0b0b;
+
+        }
+
+
+        .confirmation-product span {
+
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           TOTAL
+        ===================================================== */
+
+        .confirmation-total {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 30px;
+
+            padding: 25px;
+
+            background: #0b0b0b;
+
+            color: white;
+
+            border-radius: 12px;
+
+        }
+
+
+        .confirmation-total span {
+
+            color: #c9a45c;
+
+            font-size: 14px;
+
+            letter-spacing: 2px;
+
+            font-weight: 600;
+
+        }
+
+
+        .confirmation-total strong {
+
+            font-size: 25px;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           BOUTONS
+        ===================================================== */
+
+        .confirmation-actions {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 35px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .confirmation-actions .btn {
+
+            text-decoration: none;
+
+            padding: 15px 25px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+        }
+
+
+        .confirmation-actions .btn-primary {
+
+            background: #c9a45c;
+
+            color: #0b0b0b;
+
+        }
+
+
+        .confirmation-actions .btn-primary:hover {
+
+            background: #e2c98d;
+
+        }
+
+
+        .confirmation-actions .btn-outline {
+
+            border: 1px solid #c9a45c;
+
+            color: #0b0b0b;
+
+        }
+
+
+        .confirmation-actions .btn-outline:hover {
+
+            background: #c9a45c;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .confirmation-page {
+
+                padding: 40px 15px;
+
+            }
+
+
+            .confirmation-card {
+
+                padding: 30px 20px;
+
+            }
+
+
+            .confirmation-card h1 {
+
+                font-size: 38px;
+
+            }
+
+
+            .info-row {
+
+                flex-direction: column;
+
+                gap: 5px;
+
+            }
+
+
+            .info-row strong {
+
+                text-align: left;
+
+            }
+
+
+            .confirmation-product {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+
+            .confirmation-total {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                align-items: flex-start;
+
+            }
+
+
+            .confirmation-actions {
+
+                flex-direction: column;
+
+            }
+
+
+            .confirmation-actions .btn {
+
+                width: 100%;
+
+                box-sizing: border-box;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="header">
+
+        <div class="container header-container">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <span class="logo-main">
+                    GAYE
+                </span>
+
+                <span class="logo-sub">
+                    PARFUMERIE
+                </span>
+
+            </a>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="nav">
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+                <a href="boutique.html">
+                    Boutique
+                </a>
+
+                <a href="a-propos.html">
+                    À propos
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <!-- ACTIONS -->
+
+            <div class="header-actions">
+
+                <a
+                    href="panier.html"
+                    class="cart-button"
+                >
+
+                    🛒
+
+                    <span class="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENU CONFIRMATION
+    ===================================================== -->
+
+    <main class="confirmation-page">
+
+
+        <div
+            id="confirmation-content"
+            class="confirmation-card"
+        >
+
+            <div class="confirmation-icon">
+                ...
+            </div>
+
+            <div class="confirmation-brand">
+                GAYE PARFUMERIE
+            </div>
+
+            <h1>
+                Chargement...
+            </h1>
+
+            <p class="confirmation-text">
+                Nous préparons les informations de votre commande.
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ===================================================== -->
+
+    <script src="js/produits.js"></script>
+
+    <script src="js/panier.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/confirmation.js"></script>
+
+
+</body>
+
+</html>

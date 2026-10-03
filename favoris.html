@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mes favoris - Gaye Parfumerie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="favorites-page">
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="container header-container">
+
+            <a href="index.html" class="logo">
+
+                <span>GAYE</span>
+
+                <small>PARFUMERIE</small>
+
+            </a>
+
+
+            <nav class="nav">
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+                <a href="boutique.html">
+                    Boutique
+                </a>
+
+                <a href="a-propos.html">
+                    À propos
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <button
+                    class="search-btn"
+                    type="button"
+                >
+                    🔍
+                </button>
+
+
+                <a
+                    href="favoris.html"
+                    class="cart-btn"
+                    title="Mes favoris"
+                >
+                    ♥
+                </a>
+
+
+                <a
+                    href="panier.html"
+                    class="cart-btn"
+                >
+                    🛒
+
+                    <span class="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="menu-toggle"
+                    type="button"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- HERO -->
+
+    <section class="favorites-hero">
+
+        <div class="section-label">
+            MA SÉLECTION
+        </div>
+
+        <h1>
+            Mes <span>favoris</span>
+        </h1>
+
+        <p>
+            Retrouvez les fragrances que vous aimez.
+        </p>
+
+    </section>
+
+
+
+    <!-- CONTENU -->
+
+    <main class="favorites-content">
+
+        <div
+            class="favorites-grid"
+            id="favorites-grid"
+        ></div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        class="logo"
+                    >
+
+                        <span>GAYE</span>
+
+                        <small>PARFUMERIE</small>
+
+                    </a>
+
+                    <p>
+                        Sentez Vous Bien avec Gaye Dioulo.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <h4>
+                        Navigation
+                    </h4>
+
+                    <a href="index.html">
+                        Accueil
+                    </a>
+
+                    <a href="boutique.html">
+                        Boutique
+                    </a>
+
+                    <a href="a-propos.html">
+                        À propos
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <h4>
+                        Contact
+                    </h4>
+
+                    <a href="tel:+221774875357">
+                        77 487 53 57
+                    </a>
+
+                    <a
+                        href="https://wa.me/221774875357"
+                        target="_blank"
+                    >
+                        WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Gaye Parfumerie — Tous droits réservés.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/produits.js"></script>
+
+    <script src="js/panier.js"></script>
+
+    <script src="js/app.js"></script>
+
+
+    <script>
+
+        /* =====================================================
+           AFFICHER LES FAVORIS
+        ===================================================== */
+
+        function afficherFavoris() {
+
+            const container =
+                document.getElementById("favorites-grid");
+
+
+            const favoris =
+                recupererFavoris();
+
+
+            container.innerHTML = "";
+
+
+            /* Aucun favori */
+
+            if (favoris.length === 0) {
+
+                container.innerHTML = `
+
+                    <div class="favorite-empty">
+
+                        <div class="favorite-empty-icon">
+                            ♡
+                        </div>
+
+                        <h2>
+                            Aucun favori pour le moment
+                        </h2>
+
+                        <p>
+                            Ajoutez vos parfums préférés
+                            pour les retrouver facilement ici.
+                        </p>
+
+                        <a
+                            href="boutique.html"
+                            class="btn btn-primary"
+                        >
+                            Découvrir la boutique
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            /* Produits favoris */
+
+            favoris.forEach(function (id) {
+
+                const produit =
+                    produits.find(function (item) {
+
+                        return item.id === Number(id);
+
+                    });
+
+
+                if (!produit) {
+                    return;
+                }
+
+
+                const card =
+                    document.createElement("article");
+
+
+                card.className =
+                    "favorite-product-card";
+
+
+                card.innerHTML = `
+
+                    <div class="favorite-product-image">
+
+                        <button
+                            type="button"
+                            class="favorite-btn active"
+                            data-id="${produit.id}"
+                            onclick="basculerFavori(${produit.id})"
+                        >
+                            ♥
+                        </button>
+
+                        <img
+                            src="${produit.image}"
+                            alt="${produit.nom}"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="favorite-product-info">
+
+                        <div class="favorite-product-category">
+
+                            ${produit.categorie}
+
+                        </div>
+
+
+                        <div class="favorite-product-name">
+
+                            ${produit.nom}
+
+                        </div>
+
+
+                        <div class="favorite-product-price">
+
+                            ${Number(produit.prix).toLocaleString("fr-FR")}
+                            FCFA
+
+                        </div>
+
+
+                        <div class="favorite-actions">
+
+                            <button
+                                type="button"
+                                class="favorite-view"
+                                onclick="voirProduit(${produit.id})"
+                            >
+                                Voir
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="favorite-add"
+                                onclick="ajouterProduitBoutique(${produit.id})"
+                            >
+                                Ajouter
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                container.appendChild(card);
+
+            });
+
+        }
+
+
+        /* Affichage initial */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                afficherFavoris();
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

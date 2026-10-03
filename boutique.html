@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Boutique | Gaye Parfumerie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="container header-container">
+
+        <a href="index.html" class="logo">
+
+            <span>GAYE</span>
+
+            <small>PARFUMERIE</small>
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="index.html">
+                Accueil
+            </a>
+
+            <a href="boutique.html" class="active">
+                Boutique
+            </a>
+
+            <a href="a-propos.html">
+                À propos
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="favoris.html" class="favorite-link">
+                ♡ Favoris
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                type="button"
+                class="search-btn"
+                onclick="ouvrirRecherche()"
+                aria-label="Rechercher"
+            >
+                🔍
+            </button>
+
+
+            <a href="panier.html" class="cart-btn">
+
+                🛒
+
+                <span class="cart-count">
+                    0
+                </span>
+
+            </a>
+
+
+            <button
+                type="button"
+                class="menu-toggle"
+                onclick="toggleMenu()"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     RECHERCHE
+===================================================== -->
+
+<div
+    id="searchOverlay"
+    class="search-overlay"
+>
+
+    <div class="search-box">
+
+        <button
+            type="button"
+            class="search-close"
+            onclick="fermerRecherche()"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            Rechercher un parfum
+        </h2>
+
+
+        <div class="search-form">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Ex : Kayali, Dior, Yara..."
+                autocomplete="off"
+            >
+
+
+            <button
+                type="button"
+                onclick="effectuerRecherche()"
+            >
+                Rechercher
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <p class="hero-small-title">
+            GAYE PARFUMERIE
+        </p>
+
+
+        <h1>
+            Notre Boutique
+        </h1>
+
+
+        <p>
+            Découvrez notre collection de fragrances
+            et trouvez votre prochaine signature olfactive.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BOUTIQUE
+===================================================== -->
+
+<section class="shop-section">
+
+    <div class="container">
+
+
+        <!-- FILTRES -->
+
+        <div class="shop-filters">
+
+            <button
+                type="button"
+                class="filter-btn active"
+                data-category="tous"
+            >
+                Tous
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn"
+                data-category="femme"
+            >
+                Femme
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn"
+                data-category="homme"
+            >
+                Homme
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-btn"
+                data-category="mixte"
+            >
+                Mixte
+            </button>
+
+        </div>
+
+
+
+        <!-- RESULTAT RECHERCHE -->
+
+        <div
+            id="searchResultMessage"
+            class="search-result-message"
+        >
+        </div>
+
+
+
+        <!-- PRODUITS -->
+
+        <div
+            id="productsContainer"
+            class="shop-products-grid"
+        >
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="newsletter">
+
+    <div class="container newsletter-content">
+
+        <div>
+
+            <p class="section-small-title">
+                RESTEZ INFORMÉ
+            </p>
+
+
+            <h2>
+                Recevez nos nouveautés
+            </h2>
+
+
+            <p>
+                Découvrez nos nouveaux parfums et nos offres spéciales.
+            </p>
+
+        </div>
+
+
+        <form
+            class="newsletter-form"
+            onsubmit="return inscrireNewsletter(event)"
+        >
+
+            <input
+                type="email"
+                id="newsletterEmail"
+                placeholder="Votre adresse email"
+                required
+            >
+
+
+            <button type="submit">
+                S'inscrire
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+
+                <span>GAYE</span>
+
+                <small>PARFUMERIE</small>
+
+            </a>
+
+
+            <p>
+                Sentez Vous Bien avec Gaye Dioulo.
+            </p>
+
+
+            <p class="footer-phone">
+                📞 77 487 53 57
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h3>
+                Navigation
+            </h3>
+
+
+            <a href="index.html">
+                Accueil
+            </a>
+
+
+            <a href="boutique.html">
+                Boutique
+            </a>
+
+
+            <a href="a-propos.html">
+                À propos
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h3>
+                Service
+            </h3>
+
+
+            <a href="panier.html">
+                Mon panier
+            </a>
+
+
+            <a href="favoris.html">
+                Mes favoris
+            </a>
+
+
+            <a href="commande.html">
+                Commander
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Gaye Parfumerie — Tous droits réservés.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
+<script src="js/produits.js"></script>
+
+<script src="js/panier.js"></script>
+
+<script src="js/app.js"></script>
+
+
+
+<script>
+
+/* =====================================================
+   BOUTIQUE
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const productsContainer =
+            document.getElementById(
+                "productsContainer"
+            );
+
+
+        const filterButtons =
+            document.querySelectorAll(
+                ".filter-btn"
+            );
+
+
+        const searchResultMessage =
+            document.getElementById(
+                "searchResultMessage"
+            );
+
+
+        let categorieActuelle = "tous";
+
+
+
+        /* =================================================
+           FAVORIS
+        ================================================= */
+
+        function obtenirFavoris() {
+
+            try {
+
+                const favoris =
+                    localStorage.getItem(
+                        "gayeFavoris"
+                    );
+
+
+                if (!favoris) {
+
+                    return [];
+
+                }
+
+
+                const liste =
+                    JSON.parse(favoris);
+
+
+                if (!Array.isArray(liste)) {
+
+                    return [];
+
+                }
+
+
+                return liste.map(Number);
+
+            }
+
+            catch (erreur) {
+
+                console.error(erreur);
+
+                return [];
+
+            }
+
+        }
+
+
+
+        function basculerFavoriBoutique(id) {
+
+            id = Number(id);
+
+
+            let favoris =
+                obtenirFavoris();
+
+
+            if (favoris.includes(id)) {
+
+                favoris =
+                    favoris.filter(
+                        function (element) {
+
+                            return element !== id;
+
+                        }
+                    );
+
+            }
+
+            else {
+
+                favoris.push(id);
+
+            }
+
+
+            localStorage.setItem(
+                "gayeFavoris",
+                JSON.stringify(favoris)
+            );
+
+
+            mettreAJourCoeurs();
+
+        }
+
+
+
+        function mettreAJourCoeurs() {
+
+            const favoris =
+                obtenirFavoris();
+
+
+            const boutons =
+                document.querySelectorAll(
+                    ".favorite-btn"
+                );
+
+
+            boutons.forEach(
+                function (bouton) {
+
+                    const id =
+                        Number(
+                            bouton.dataset.id
+                        );
+
+
+                    if (
+                        favoris.includes(id)
+                    ) {
+
+                        bouton.textContent =
+                            "♥";
+
+                        bouton.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                    else {
+
+                        bouton.textContent =
+                            "♡";
+
+                        bouton.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+
+        /* =================================================
+           AFFICHER PRODUITS
+        ================================================= */
+
+        function afficherProduits() {
+
+            productsContainer.innerHTML =
+                "";
+
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+
+            const recherche =
+                (
+                    params.get("recherche") || ""
+                )
+                .trim()
+                .toLowerCase();
+
+
+
+            const produitsFiltres =
+                produits.filter(
+                    function (produit) {
+
+
+                        const categorieOK =
+                            categorieActuelle === "tous" ||
+                            produit.categorie === categorieActuelle;
+
+
+                        const rechercheOK =
+                            recherche === "" ||
+                            produit.nom
+                                .toLowerCase()
+                                .includes(recherche) ||
+                            produit.description
+                                .toLowerCase()
+                                .includes(recherche);
+
+
+                        return (
+                            categorieOK &&
+                            rechercheOK
+                        );
+
+                    }
+                );
+
+
+
+            /* MESSAGE RECHERCHE */
+
+            if (recherche !== "") {
+
+                searchResultMessage.innerHTML = `
+
+                    <p>
+
+                        Résultats pour :
+
+                        <strong>
+                            "${recherche}"
+                        </strong>
+
+                        —
+                        ${produitsFiltres.length}
+                        parfum(s) trouvé(s)
+
+                    </p>
+
+                `;
+
+                searchResultMessage.style.display =
+                    "block";
+
+            }
+
+            else {
+
+                searchResultMessage.innerHTML =
+                    "";
+
+                searchResultMessage.style.display =
+                    "none";
+
+            }
+
+
+
+            /* AUCUN PRODUIT */
+
+            if (
+                produitsFiltres.length === 0
+            ) {
+
+                productsContainer.innerHTML = `
+
+                    <div class="no-products">
+
+                        <div class="no-products-icon">
+                            ♡
+                        </div>
+
+                        <h3>
+                            Aucun parfum trouvé
+                        </h3>
+
+                        <p>
+                            Essayez une autre recherche
+                            ou choisissez une autre catégorie.
+                        </p>
+
+                        <a
+                            href="boutique.html"
+                            class="btn btn-primary"
+                        >
+                            Voir tous les parfums
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+
+            /* =================================================
+               CARTES
+            ================================================= */
+
+            produitsFiltres.forEach(
+                function (produit) {
+
+
+                    const card =
+                        document.createElement(
+                            "article"
+                        );
+
+
+                    card.className =
+                        "shop-product-card";
+
+
+
+                    card.innerHTML = `
+
+                        <div class="shop-product-image">
+
+                            <button
+                                type="button"
+                                class="favorite-btn"
+                                data-id="${produit.id}"
+                                title="Ajouter aux favoris"
+                                aria-label="Ajouter aux favoris"
+                            >
+                                ♡
+                            </button>
+
+
+                            <img
+                                src="${produit.image}"
+                                alt="${produit.nom}"
+                                loading="lazy"
+                                onclick="voirProduit(${produit.id})"
+                            >
+
+                        </div>
+
+
+                        <div class="shop-product-info">
+
+                            <span class="product-category">
+                                ${produit.categorie}
+                            </span>
+
+
+                            <h3>
+                                ${produit.nom}
+                            </h3>
+
+
+                            <p class="product-description">
+                                ${produit.description}
+                            </p>
+
+
+                            <div class="shop-product-bottom">
+
+                                <span class="product-price">
+
+                                    ${Number(
+                                        produit.prix
+                                    ).toLocaleString("fr-FR")}
+
+                                    FCFA
+
+                                </span>
+
+
+                                <button
+                                    type="button"
+                                    class="btn-add-cart"
+                                    onclick="ajouterProduitBoutique(${produit.id})"
+                                >
+                                    Ajouter
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+
+                    /* Bouton favori */
+
+                    const boutonFavori =
+                        card.querySelector(
+                            ".favorite-btn"
+                        );
+
+
+                    boutonFavori.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.preventDefault();
+
+                            event.stopPropagation();
+
+
+                            basculerFavoriBoutique(
+                                produit.id
+                            );
+
+                        }
+                    );
+
+
+
+                    productsContainer.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+
+
+            /* Mettre à jour les cœurs */
+
+            mettreAJourCoeurs();
+
+        }
+
+
+
+        /* =================================================
+           FILTRES
+        ================================================= */
+
+        filterButtons.forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+
+                        filterButtons.forEach(
+                            function (btn) {
+
+                                btn.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+
+                        button.classList.add(
+                            "active"
+                        );
+
+
+                        categorieActuelle =
+                            button.dataset.category;
+
+
+                        afficherProduits();
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =================================================
+           AFFICHAGE INITIAL
+        ================================================= */
+
+        afficherProduits();
+
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
